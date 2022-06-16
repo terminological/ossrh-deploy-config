@@ -90,11 +90,40 @@ then test gpg is working:
 ```BASH
 echo test | gpg2 -a --sign
 ```
+## Setup project to be deployed
 
-## Deploy the project to upload a snapshot
+Setup the `my-git-repo/pom.xml` to use this project as a parent and reconfigure scm location to point at `my-git-repo`
+
+```XML
+  ...
+  <parent>
+    <groupId>io.github.terminological</groupId>
+    <artifactId>ossrh-deploy-config</artifactId>
+    <version>0.3.0-SNAPSHOT</version>
+  </parent>
+  ...
+  <properties>
+    <git.repo>my-git-repo</git.repo>
+  </properties>
+  ...
+  <!-- might not be required as in parent pom
+  <scm>
+    <connection>scm:git:git@github.com:terminological/${git.repo}.git</connection>
+    <developerConnection>scm:git:git@github.com:terminological/${git.repo}.git</developerConnection>
+    <url>https://github.com/terminological/${git.repo}</url>
+  </scm>
+  -->
+  ...
+  
+```
+## Deploy the my-git-repo project to upload a snapshot
 
 ```BASH
 export GPG_TTY=`tty`
 cd ~/Git/my-project
 mvn clean deploy
 ```
+
+TODO: I should understand how this fits in:
+
+https://central.sonatype.org/publish/publish-maven/#performing-a-release-deployment

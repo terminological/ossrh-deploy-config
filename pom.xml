@@ -26,13 +26,13 @@
   </developers>
   
   <properties>
-    <git.repo>terminological/ossrh-deploy-config</git.repo>
+    <git.repo>ossrh-deploy-config</git.repo>
   </properties>
   
   <scm>
-    <connection>scm:git:git@github.com:${git.repo}.git</connection>
-    <developerConnection>scm:git:git@github.com:${git.repo}.git</developerConnection>
-    <url>https://github.com/${git.repo}</url>
+    <connection>scm:git:git@github.com:terminological/${git.repo}.git</connection>
+    <developerConnection>scm:git:git@github.com:terminological/${git.repo}.git</developerConnection>
+    <url>https://github.com/terminological/${git.repo}</url>
   </scm>
   
   
