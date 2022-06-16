@@ -124,6 +124,17 @@ cd ~/Git/my-project
 mvn clean deploy
 ```
 
+## Deploy a release to Maven central
+
+```BASH
+cd ~/Git/my-project
+git checkout -b release-X.Y.Z
+mvn versions:set -DnewVersion=X.Y.Z
+gh release create vX.Y.Z --target=release-X.Y.Z
+mvn clean deploy
+git checkout main
+```
+
 TODO: I should understand how this fits in:
 
 https://central.sonatype.org/publish/publish-maven/#performing-a-release-deployment
