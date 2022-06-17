@@ -135,17 +135,23 @@ mvn clean deploy
 cd ~/Git/my-project
 
 git add -A
-git commit -m "release-X.Y.Z"
+git commit -m "pre release-X.Y.Z"
 git push
 
 git checkout -b release-X.Y.Z
 mvn versions:set -DnewVersion=X.Y.Z
 git push --set-upstream origin release-X.Y.Z
 
-gh release create X.Y.Z --target=release-X.Y.Z --generate-notes
 mvn clean deploy
+gh release create X.Y.Z --target=release-X.Y.Z --generate-notes
+
 git checkout main
+git merge release-X.Y.Z
 mvn versions:set -DnewVersion=main-SNAPSHOT
+
+git add -A
+git commit -m "post release-X.Y.Z"
+git push
 
 ```
 

@@ -5,9 +5,10 @@
   <groupId>io.github.terminological</groupId>
   <artifactId>ossrh-deploy-config</artifactId>
   <packaging>pom</packaging>
-  <version>0.3.0</version>
+  <version>main-SNAPSHOT</version>
   <name>ossrh-deploy-config</name>
-  <url>https://github.com/terminological/ossrh-deploy-config</url>
+  <description>Terminological OSSRH deployment helper parent pom</description>
+  
   
   <licenses>
     <license>
@@ -28,6 +29,8 @@
   <properties>
     <git.repo>ossrh-deploy-config</git.repo>
   </properties>
+  
+  <url>https://github.com/terminological/${git.repo}</url>
   
   <scm>
     <connection>scm:git:git@github.com:terminological/${git.repo}.git</connection>
