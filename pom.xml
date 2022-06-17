@@ -5,7 +5,7 @@
   <groupId>io.github.terminological</groupId>
   <artifactId>ossrh-deploy-config</artifactId>
   <packaging>pom</packaging>
-  <version>main-SNAPSHOT</version>
+  <version>0.3.0</version>
   <name>ossrh-deploy-config</name>
   <description>Terminological OSSRH deployment helper parent pom</description>
   
