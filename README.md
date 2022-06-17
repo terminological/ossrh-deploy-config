@@ -131,12 +131,22 @@ mvn clean deploy
 ## Deploy a release to Maven central
 
 ```BASH
+
 cd ~/Git/my-project
+
+git add -A
+git commit -m "release-X.Y.Z"
+git push
+
 git checkout -b release-X.Y.Z
 mvn versions:set -DnewVersion=X.Y.Z
-gh release create vX.Y.Z --target=release-X.Y.Z
+git push --set-upstream origin release-X.Y.Z
+
+gh release create X.Y.Z --target=release-X.Y.Z --generate-notes
 mvn clean deploy
 git checkout main
+mvn versions:set -DnewVersion=main-SNAPSHOT
+
 ```
 
 TODO: I should understand how this fits in:

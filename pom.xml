@@ -5,7 +5,7 @@
   <groupId>io.github.terminological</groupId>
   <artifactId>ossrh-deploy-config</artifactId>
   <packaging>pom</packaging>
-  <version>0.3.0-SNAPSHOT</version>
+  <version>0.3.0</version>
   <name>ossrh-deploy-config</name>
   <url>https://github.com/terminological/ossrh-deploy-config</url>
   
