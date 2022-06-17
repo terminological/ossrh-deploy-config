@@ -12,6 +12,10 @@ edit the file `~/.m2/settings.xml` to look like the following:
       <username>my-jira-username</username>
       <password>my-jira-password</password>
     </server>
+    <server>
+      <id>my-gpg-keyname</id>
+      <passphrase>my-gpg-passphrase</passphrase>
+    </server>
   </servers>
   <profiles>
     <profile>
@@ -21,7 +25,6 @@ edit the file `~/.m2/settings.xml` to look like the following:
       </activation>
       <properties>
         <gpg.executable>gpg2</gpg.executable>
-        <gpg.passphrase>my-gpg-passphrase</gpg.passphrase>
         <gpg.keyname>my-gpg-keyname</gpg.keyname>
       </properties>
     </profile>
@@ -90,6 +93,7 @@ then test gpg is working:
 ```BASH
 echo test | gpg2 -a --sign
 ```
+
 ## Setup project to be deployed
 
 Setup the `my-git-repo/pom.xml` to use this project as a parent and reconfigure scm location to point at `my-git-repo`
