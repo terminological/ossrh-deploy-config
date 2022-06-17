@@ -120,11 +120,11 @@ Setup the `my-git-repo/pom.xml` to use this project as a parent and reconfigure 
   ...
   
 ```
-## Deploy the my-git-repo project to upload a snapshot
+## Deploy the my-git-repo project to upload a main-SNAPSHOT
 
 ```BASH
-export GPG_TTY=`tty`
 cd ~/Git/my-project
+mvn versions:set -DnewVersion=main-SNAPSHOT
 mvn clean deploy
 ```
 
@@ -140,18 +140,23 @@ git push
 
 git checkout -b release-X.Y.Z
 mvn versions:set -DnewVersion=X.Y.Z
-git push --set-upstream origin release-X.Y.Z
 
 mvn clean deploy
+# fix any issues and repeat deploy
+git add -A
+git commit -m "post release-X.Y.Z"
+git push --set-upstream origin release-X.Y.Z
 gh release create X.Y.Z --target=release-X.Y.Z --generate-notes
 
 git checkout main
+
+# may have to consider
 git merge release-X.Y.Z
 mvn versions:set -DnewVersion=main-SNAPSHOT
 
-git add -A
-git commit -m "post release-X.Y.Z"
-git push
+# if everything goes wrong
+git branch -d release-X.Y.Z
+
 
 ```
 
