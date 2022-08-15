@@ -1,6 +1,6 @@
 # ossrh-deploy-config
 
-Deploy a artefact to OSSRH
+Deploy a artefact to OSSRH as part of the terminological organisation
 
 edit the file `~/.m2/settings.xml` to look like the following:
 
@@ -156,7 +156,7 @@ mvn versions:set -DnewVersion=main-SNAPSHOT
 
 # if everything goes wrong
 git branch -d release-X.Y.Z
-
+git push origin --delete release-X.Y.Z
 
 ```
 

@@ -75,7 +75,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-javadoc-plugin</artifactId>
-        <version>2.9.1</version>
+        <version>3.3.0</version>
         <executions>
           <execution>
             <id>attach-javadocs</id>
@@ -97,6 +97,12 @@
               <goal>sign</goal>
             </goals>
             <configuration>
+              <gpgArguments>
+<!-- 			    <arg>pinentry-mode</arg> -->
+<!-- 			    <arg>loopback</arg> -->
+			    <!-- GPG 2.1 requires pinentry-mode to be set to loopback in order to pick up the gpg.passphrase value defined in Maven settings.xml. -->
+			    <!-- see: https://github.com/actions/setup-java/blob/main/docs/advanced-usage.md#Installing-custom-Java-package-type -->
+			  </gpgArguments>
               <keyname>${gpg.keyname}</keyname>
               <passphraseServerId>${gpg.keyname}</passphraseServerId>
             </configuration>
